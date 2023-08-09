@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.neu.edu.schedule"
+    android:versionCode="1"
+    android:versionName="1.0">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>//允许访问震动
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>//读取手机状态数据
+
+    <uses-feature android:name="android.hardware.camera"/>//控制摄像头
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="false"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="东大日程"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Schedule.NoActionBar">
+        <activity android:name=".ClassActivity">
+
+        </activity>
+        <activity android:name=".MainActivity">
+
+        </activity>
+        <activity android:name=".LoginActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".RecordActivity">
+
+        </activity>
+
+        <activity
+            android:name="com.neu.edu.schedule.AddActivity"
+            android:exported="true"
+            android:theme="@style/NoteTheme"
+            android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="com.neu.edu.schedule.ShowNoteActivity"/>
+        <activity android:name="com.neu.edu.schedule.SearchActivity"/>
+        <activity android:name="com.neu.edu.schedule.DataSearchActivity"/>
+
+        <receiver
+            android:name="com.neu.edu.schedule.data.CallAlarm"
+            android:process=":remote"/>
+
+        <activity
+            android:name="com.neu.edu.schedule.data.AlarmAlert"
+            android:label="@string/remindsetting_name">
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.neu.edu.schedule.Main2Activity">
+        </activity>
+    </application>
+
+</manifest>
